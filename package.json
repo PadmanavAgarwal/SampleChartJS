@@ -1,0 +1,27 @@
+{
+  "name": "meetlyf",
+  "version": "1.0.0",
+  "description": "Identify the status of Health & Insurance of Indian States.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tathagataHazra/MeetLyf.git"
+  },
+  "keywords": [
+    "MeetLyf"
+  ],
+  "author": "Tathagata Hazra <tatgh2@gmail.com> (http://Guru99.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tathagataHazra/MeetLyf/issues"
+  },
+  "homepage": "https://github.com/tathagataHazra/MeetLyf#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4"
+  }
+}

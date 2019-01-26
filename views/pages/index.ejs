@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<link rel="icon" href="MeetLyfLogo.ico" type="image/x-icon"/>
+<title>MeetLyf</title>
+<!-- CDN link for jquery -->
+<script src="https://code.jquery.com/jquery-3.3.1.js"
+	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+	crossorigin="anonymous"></script>
+<!-- <script type="text/javascript" src="compiled-4.6.1.min.js"></script>
+<script type="text/javascript" src="util.js"></script> -->
+<style type="text/css">
+.chart {
+	border-radius: 10px;
+	position: relative;
+	margin: 10px auto;
+	box-sizing: border-box;
+	background-color: #fff;
+}
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: black;
+   color: white;
+   text-align: center;
+}
+</style>
+</head>
+<body style="background-color: #b9bbe8; margin: 0px;">
+	<div style="background-color: black; height: 45px; color: white; text-align: right;">
+		<img align="left" src="logo.png" alt="logo" style="height:100%;">
+	</div>
+	<div >
+		<div style="float: left; width: 40%;">
+			<!-- Embedded SVG Image here -->
+			<object id="svgObject" data="indiaHigh.svg" type="image/svg+xml">
+				Your browser doesn't support SVG </object>
+		</div>
+		<div id="dataDiv" style="float: left; width: 60%;">
+			<% include dataPage.ejs %>
+		</div>
+		<footer class="footer">
+            <div style="width: 100%; background-color: black;">
+    			<font style="font-size: 13px;">&copy; 2019 | <b>MeetLyf</b> | All rights reserved | Designed by Tathagata Hazra</font>
+			</div>
+        </footer>
+	</div>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+	<script>
+		//PIE CHART CODE STARTED
+		var barChartContext = document.getElementById("bar-chart-custom");
+		let data = <%= chartData %>;
+		var myChart = new Chart(barChartContext, {
+			type: 'bar',
+			data: {
+				labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+				datasets: [{
+					label: '# of Votes',
+					data: data,
+					backgroundColor: [
+						'rgba(255, 99, 132, 0.2)',
+						'rgba(54, 162, 235, 0.2)',
+						'rgba(255, 206, 86, 0.2)',
+						'rgba(75, 192, 192, 0.2)',
+						'rgba(153, 102, 255, 0.2)',
+						'rgba(255, 159, 64, 0.2)'
+					],
+					borderColor: [
+						'rgba(255,99,132,1)',
+						'rgba(54, 162, 235, 1)',
+						'rgba(255, 206, 86, 1)',
+						'rgba(75, 192, 192, 1)',
+						'rgba(153, 102, 255, 1)',
+						'rgba(255, 159, 64, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero:true
+						}
+					}]
+				}
+			}
+		});
+	</script>
+</body>
+</html>
